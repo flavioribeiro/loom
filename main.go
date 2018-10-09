@@ -64,7 +64,7 @@ func main() {
 	signal.Notify(osStop, syscall.SIGINT, syscall.SIGTERM)
 	go func() {
 		sig := <-osStop
-		log.Print("recieved a signal, killing all workers: ", sig)
+		log.Print("received a signal, killing all workers: ", sig)
 		closing <- true
 	}()
 	SignalSafeMain(closing)
